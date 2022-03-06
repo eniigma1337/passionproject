@@ -1,0 +1,23 @@
+﻿@model IEnumerable<WebApplication3.Models.WeaponDto>
+@{ ViewBag.Title = "List"; }
+
+<h2>List of Weapons</h2>
+<a href="/Weapon/New">New Weapon</a>
+<div class="row">
+    @foreach (var weapon in Model)
+    {
+    <div class="col-lg-6 text-center" style="padding-top: 4%;">
+        <h2><a href="/Weapon/Details/@weapon.WeaponID">@weapon.WeaponName</a></h2>
+        <div>
+            @{ string imageurl = "/Content/Images/Weapons/default.jpg";
+                if (weapon.WeaponHasPic)
+                {
+                    imageurl = "/Content/Images/Weapons/" + weapon.WeaponID + "." + weapon.PicExtension;
+                } }
+            <img style="display: block; width: 320px; height: 320px;" alt="@weapon.WeaponName" src="@imageurl" />
+        </div>
+        <div>Weapon Creation Year: @weapon.WeaponCreationYear</div>
+        <div>Weapon Description: @weapon.WeaponDescription</div>
+        <div>Collection Name: @weapon.CollectionsName</div></div>}
+    </div>
+

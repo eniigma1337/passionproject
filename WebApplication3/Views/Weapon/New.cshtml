@@ -1,0 +1,33 @@
+﻿@model IEnumerable<WebApplication3.Models.CollectionsDto>
+
+@{
+    ViewBag.Title = "Create";
+}
+
+<h2>Create a weapon</h2>
+<form action="/Weapon/Create" method="POST">
+    <div>
+        <label>Name:</label><input type="text" name="WeaponName" />
+    </div>
+    <div>
+        <label>Weapon Creation Year:</label> <input type="number" name="WeaponCreationYear" />
+</div>
+    <div>
+        <label>Description:</label><input type="text" name="WeaponDescription" />
+    </div>
+    <div>
+        <label>Collection:</label>
+        <select name="CollectionsID">
+            @foreach (var collections in Model)
+            {
+                <option value="@collections.CollectionsID">@collections.CollectionsName</option>
+
+            }
+        </select>
+    </div>
+    <div>
+        <input type="submit" value="Add Weapon" />
+    </div>
+
+</form>
+

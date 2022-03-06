@@ -1,0 +1,42 @@
+﻿@model WebApplication3.Models.ViewModels.UpdateWeapon
+@{
+    ViewBag.Title = "Edit";
+}
+
+<h2>Update Weapon</h2>
+<form action="/Weapon/Update/@Model.SelectedWeapon.WeaponID" method="POST" enctype = "multipart/form-data">
+    <div style="display:none;">
+        @* Pass through the weapon ID *@
+        <input type="text" name="WeaponID" value="@Model.SelectedWeapon.WeaponID" />
+    </div>
+    <div>
+        <label>Name:</label> <input type="text" name="WeaponName" value="@Model.SelectedWeapon.WeaponName" />
+    </div>
+    <div>
+        <label>Weapon Creation Year:</label> <input type="number" name="WeaponCreationYear" value="@Model.SelectedWeapon.WeaponCreationYear" />
+    </div>
+    <div>
+        <label>Weapon Description:</label> <input type="text" name="WeaponDescription" value="@Model.SelectedWeapon.WeaponDescription" />
+    </div>
+    <div>
+        <label>Collection Year:</label>
+
+        <select name="CollectionsID">
+            @foreach (var collections in Model.CollectionsOptions)
+            {
+                string selected = "";
+                if (collections.CollectionsID == Model.SelectedWeapon.CollectionsID)
+                {
+                    selected = "selected";
+                }
+                <option value="@collections.CollectionsID" @selected>@collections.CollectionsName</option>            
+            }
+        </select>
+    </div>
+    <div>
+        <input type="file" name="WeaponPic" />
+    </div>
+    <div>
+        <input type="submit" value="Update Weapon" />
+    </div>
+</form>

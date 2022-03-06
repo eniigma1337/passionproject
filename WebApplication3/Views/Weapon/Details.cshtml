@@ -1,0 +1,33 @@
+﻿@model WebApplication3.Models.ViewModels.DetailsWeapon
+@{ ViewBag.Title = "Details"; }
+<a href="/Weapon/List">Go back to list</a>
+<br />
+<a href="/Weapon/Edit/@Model.SelectedWeapon.WeaponID">Update</a>
+<br />
+<a style="color:darkred;" href="/Weapon/DeleteConfirm/@Model.SelectedWeapon.WeaponID">Delete</a>
+<h2>@Model.SelectedWeapon.WeaponName</h2>
+<div>
+    <div>Weapon Creation Year: @Model.SelectedWeapon.WeaponCreationYear</div>
+    <div>Weapon Description: @Model.SelectedWeapon.WeaponDescription</div>
+    <div>
+
+        Collection : @Model.SelectedWeapon.CollectionsName
+
+    </div>
+    @{ string imageurl = "/Content/Images/Weapons/1.jpg";
+        if (Model.SelectedWeapon.WeaponHasPic)
+        {
+            imageurl = "/Content/Images/Weapons/" + Model.SelectedWeapon.WeaponID + "." + Model.SelectedWeapon.PicExtension;
+        }
+<div style="width: 50%;">
+    <img style="display:block; max-width:100%;" alt="@Model.SelectedWeapon.WeaponName" src="@imageurl" />
+</div>
+    }
+
+</div>
+
+
+
+
+
+

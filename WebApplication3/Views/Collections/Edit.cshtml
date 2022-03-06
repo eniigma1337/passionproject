@@ -1,0 +1,24 @@
+﻿@model WebApplication3.Models.CollectionsDto
+
+@{
+    ViewBag.Title = "Edit";
+}
+
+<h2>Update Collection</h2>
+<form action="/Collections/Update/@Model.CollectionsID" method="POST">
+    <div style="display:none;">
+        @* Pass through the Collections ID *@
+        <input type="text" name="CollectionsID" value="@Model.CollectionsID" />
+    </div>
+    <div>
+        <label>Name:</label> <input type="text" name="CollectionsName" value="@Model.CollectionsName" />
+    </div>
+    <div>
+        <label>Year:</label> <input type="text" name="CollectionsYear" value="@Model.CollectionsYear" />
+    </div>
+ 
+    <div>
+        <input type="submit" value="Update Collections" />
+
+    </div>
+</form>

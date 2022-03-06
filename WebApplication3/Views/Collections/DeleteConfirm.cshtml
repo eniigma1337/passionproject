@@ -1,0 +1,15 @@
+﻿@model WebApplication3.Models.CollectionsDto
+
+@{
+    ViewBag.Title = "DeleteConfirm";
+}
+
+<h2>Are you sure you want to delete this Collection?</h2>
+<a href="/Collections/List">Cancel</a>
+<h3>Name: @Model.CollectionsName</h3>
+
+<p>Collections Year: @Model.CollectionsYear</p>
+<form action="/Collections/Delete/@Model.CollectionsID" method="POST">
+    <input type="submit" value="Confirm Delete" />
+</form>
+

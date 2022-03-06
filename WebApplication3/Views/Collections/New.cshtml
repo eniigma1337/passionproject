@@ -1,0 +1,18 @@
+﻿
+@{
+    ViewBag.Title = "Create";
+}
+
+<h2>Create Collections</h2>
+<form action="/Collections/Create" method="POST">
+    <div>
+        <label>Name:</label> <input type="text" name="CollectionsName" />
+    </div>
+    <div>
+        <label>Collection Year:</label>
+        <input type="text" name="CollectionsYear"/>
+    </div>
+    <div>
+        <input type="submit" value="Create Collections" />
+    </div>
+</form>

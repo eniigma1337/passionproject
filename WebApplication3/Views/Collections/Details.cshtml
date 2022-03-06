@@ -1,0 +1,26 @@
+﻿@model WebApplication3.Models.ViewModels.DetailsCollections
+
+
+@{
+    ViewBag.Title = "View";
+}
+
+<a href="/Collections/List">Go back to list</a>
+<br />
+<a href="/Collections/Edit/@Model.SelectedCollections.CollectionsID">Update</a>
+<br />
+<a style="color:darkred;" href="/Collections/DeleteConfirm/@Model.SelectedCollections.CollectionsID">Delete</a>
+<h2>@Model.SelectedCollections.CollectionsName</h2>
+<div>Year: @Model.SelectedCollections.CollectionsYear</div>
+
+
+<div style="margin-top:50px;">
+    <h3>Weapons in this collection: </h3>
+    <ul class="list-group">
+        @foreach (var weapon in Model.RelatedWeapons)
+        {
+    <li class="list-group-item">
+        <a href="/Weapon/Details/@weapon.WeaponID">@weapon.WeaponName</a>
+    </li>}
+        </ul>
+</div>
